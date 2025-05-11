@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose Your Plan</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #3f51b5;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px #bbb;
+    }
+
+    .pricing-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 280px;
+      padding: 30px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      color: #4a148c;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 28px;
+      color: #0097a7;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .features li {
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: linear-gradient(to right, #7b1fa2, #009688);
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    @media (max-width: 900px) {
+      .pricing-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Choose Your Plan</h1>
+
+  <div class="pricing-container">
+    <div class="card">
+      <h3>Free</h3>
+      <p class="price">₹0/mo</p>
+      <ul class="features">
+        <li>1 User</li>
+        <li>Basic Support</li>
+        <li>Limited Features</li>
+      </ul>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+    <div class="card">
+      <h3>Pro</h3>
+      <p class="price">₹499/mo</p>
+      <ul class="features">
+        <li>5 Users</li>
+        <li>Email Support</li>
+        <li>All Features</li>
+      </ul>
+      <a href="#" class="btn">Buy Now</a>
+    </div>
+    <div class="card">
+      <h3>Premium</h3>
+      <p class="price">₹999/mo</p>
+      <ul class="features">
+        <li>Unlimited Users</li>
+        <li>24/7 Support</li>
+        <li>Advanced Analytics</li>
+      </ul>
+      <a href="#" class="btn">Upgrade</a>
+    </div>
+  </div>
+
+  <script>
+    // Animate cards on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add('visible');
+        }, index * 200);
+      });
+    });
+  </script>
+</body>
+</html>
